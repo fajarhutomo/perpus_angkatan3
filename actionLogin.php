@@ -14,9 +14,11 @@ $queryLogin = mysqli_query($koneksi, "SELECT * FROM user WHERE email='$email'");
 // //End untuk cek eror
 if (mysqli_num_rows($queryLogin) > 0) {
     $rowUser = mysqli_fetch_assoc($queryLogin);
+    // print_r($rowUser);
+    // die;
     if ($rowUser['password'] == $password) {
-        $_SESSION['NAMA'] = $rowUser['nama'];
-        $_SESSION['ID'] = $rowUser['id'];
+        $_SESSION['NAMA'] = $rowUser['Nama'];
+        $_SESSION['ID'] = $rowUser['ID'];
         header("location:index.php?login=berhasil");
         # code...
     }
